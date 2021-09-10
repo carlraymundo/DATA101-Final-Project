@@ -175,24 +175,67 @@ main{
     min-height: calc(100vh - 90px);
 }
 
+.map-and-cards{
+    display: grid;
+    grid-template-columns: 30% 30% 15% 15%;
+    grid-gap: 1rem;
+    margin-top:1rem;
+    background: gold;
+}
+
+
+.map{
+    grid-area: 1 / 1 / span 2 / span 2;
+    background: #fff;
+}
+
+.card-1{
+    grid-area: 1 / 3 / 1 / 3;
+    justify-content: space-between;
+    background: #fff;
+    padding: 2rem;
+    margin-top: 1rem;
+    border-radius: 2px;
+}
+
+.card-2{
+    grid-area: 1 / 4 / 1 / 4;
+    justify-content: space-between;
+    background: #fff;
+    padding: 2rem;
+    margin-top: 1rem;
+    border-radius: 2px;
+}
+
+.card-3{
+    grid-area: 2 / 3 / 2 / 3;
+    justify-content: space-between;
+    background: #fff;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 2px;
+}
+
+.card-4{
+    grid-area: 2 / 4 / 2 / 4;
+    justify-content: space-between;
+    background: #fff;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 2px;
+}
+
+
 .cards{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
     margin-top: 1rem;
 }
 
-.card-single{
-    display: flex;
-    justify-content: space-between;
-    background: #fff;
-    padding: 2rem;
-    border-radius: 2px;
-}
-
 .card-single div:last-child span{
     font-size: 3rem;
-    color: #DD2F6E;
+    color: #DD10A0;
 }
 
 .card-single div:first-child span{
@@ -200,13 +243,29 @@ main{
 }
 
 .card-single:last-child{
-    background: #DD2F6E;
+    background: #eeba81;
 }
 
 .card-single:last-child h1,
 .card-single:last-child div:first-child span,
 .card-single:last-child div:last-child span{
     color: #fff;
+}
+
+.chart-grid{
+    margin-top: 3.5rem;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 50% auto;
+    background:green;
+}
+
+.expenditure-breakdown{
+    background: red;
+}
+
+.other-chart{
+    background: blue;
 }
 
 .recent-grid{
