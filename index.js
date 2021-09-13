@@ -12,24 +12,24 @@ var map = new mapboxgl.Map({
 map.on('load', () =>{
     map.addSource('phregions', {
        type: 'vector',
-        url: 'mapbox://asdfgeist.ckti3hatq475928p7ejnhbr21-0d2bl'
+        url: 'mapbox://asdfgeist.ckti8vq4a0o5520tcvzp2qjsq-1ig0o'
     });
     map.addLayer({
         id: 'fies',
         type: 'fill',
         source: 'phregions',
-        'source-layer': 'RegionsGini',
+        'source-layer': 'Regions_w_Gini_1.1',
         paint: {
             'fill-color': /*'#ff00ff'*/
                 ['interpolate',
                 ['linear'],
                 ['get', 'gini'],
-                0,'#edf8fb',
-                0.1,'#ccece6',
-                0.2,'#99d8c9',
-                0.3,'#66c2a4',
-                0.4,'#41ae76',
-                0.5,'#238b45'],
+                0,'#ffffff',
+                0.1,'#e0fff3',
+                0.2,'#ace6cf',
+                0.3,'#7ac2a5',
+                0.4,'#217a57',
+                0.5,'#093b27'],
             'fill-outline-color': '#555555'
          }
     
@@ -38,7 +38,6 @@ map.on('load', () =>{
     
     console.log(map);
     map.on('click', 'fies', (e) => {
-        console.log(typeof e);
         console.log(typeof e);
         new mapboxgl.Popup()
             .setLngLat(e.lngLat)
