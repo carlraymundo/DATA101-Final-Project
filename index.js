@@ -4,16 +4,16 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/asdfgeist/ckti3tekg2oo918wb39r6w2o1',
     center: [120.99, 14.56],
-    zoom: 5,
-    minZoom: 5,
+    zoom: 4,
+    minZoom: 2,
     maxZoom: 15
 });
 
 var currFormatter = Intl.NumberFormat({
     style:'currency',
     currency:'PHP',
-    minimumFractionDigits:2,
-    maximumFractionDigits:2
+    minimumFractionDigits:1,
+    maximumFractionDigits:1
 })
 
 map.on('load', () =>{
