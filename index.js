@@ -54,5 +54,6 @@ map.on('load', () =>{
         document.getElementById("regionalFamIncome").innerHTML = currFormatter.format(parseFloat(e.features[0].properties['mean_income']))
         document.getElementById("regionalHouseSize").innerHTML = parseFloat(e.features[0].properties['mean_family_size']).toFixed(2)
         document.getElementById("regionalGiniValue").innerHTML = e.features[0].properties['gini']
+        document.getElementById("regionalName").innerHTML = e.features[0].properties['REGION']
     });
 });
