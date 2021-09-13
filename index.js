@@ -4,10 +4,17 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/asdfgeist/ckti3tekg2oo918wb39r6w2o1',
     center: [120.99, 14.56],
-    zoom: 2,
-    minZoom: 2,
+    zoom: 5,
+    minZoom: 5,
     maxZoom: 15
 });
+
+var currFormatter = Intl.NumberFormat({
+    style:'currency',
+    currency:'PHP',
+    minimumFractionDigits:2,
+    maximumFractionDigits:2
+})
 
 map.on('load', () =>{
     map.addSource('phregions', {
@@ -41,11 +48,11 @@ map.on('load', () =>{
         console.log(typeof e);
         new mapboxgl.Popup()
             .setLngLat(e.lngLat)
-            .setHTML("<b>"+e.features[0].properties['REGION']+"</b><br><p>"+'Mean Income: '+e.features[0].properties['mean_income'])
+            .setHTML("<b>"+e.features[0].properties['REGION']+"</b><br><p>"+'Mean Income: '+currFormatter.format(parseFloat(e.features[0].properties['mean_income'])))
             .addTo(map);
-        document.getElementById("regionalFamExpenditure").innerHTML = e.features[0].properties['mean_expenditure']
-        document.getElementById("regionalFamIncome").innerHTML = e.features[0].properties['mean_income']
-        document.getElementById("regionalHouseSize").innerHTML = e.features[0].properties['mean_family_size']
+        document.getElementById("regionalFamExpenditure").innerHTML = currFormatter.format(parseFloat(e.features[0].properties['mean_expenditure']))
+        document.getElementById("regionalFamIncome").innerHTML = currFormatter.format(parseFloat(e.features[0].properties['mean_income']))
+        document.getElementById("regionalHouseSize").innerHTML = parseFloat(e.features[0].properties['mean_family_size']).toFixed(2)
         document.getElementById("regionalGiniValue").innerHTML = e.features[0].properties['gini']
     });
 });
