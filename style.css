@@ -520,7 +520,6 @@ tr td:last-child{
 #map{
     position: absolute;
     padding: 16px;
-    
     width: 97%;
     height: 85%;
 }
