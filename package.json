@@ -1,0 +1,28 @@
+{
+  "name": "DATA101-Final-Project",
+  "version": "1.0.0",
+  "description": "Final Project for the course Data Visualization",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlraymundo/DATA101-Final-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlraymundo/DATA101-Final-Project/issues"
+  },
+  "homepage": "https://github.com/carlraymundo/DATA101-Final-Project#readme",
+  "dependencies": {
+    "connect": "^3.7.0",
+    "express": "^4.17.1",
+    "serve-static": "^1.14.1"
+  }
+}
