@@ -1,25 +1,5 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYXNkZmdlaXN0IiwiYSI6ImNrcngwdTZjaTBtMDQyd2szcDdxdWpmb2IifQ.4nNuy2MKxtc5Cd82sENkMQ';
 
-var regionID = {};
-regionID[0]="Region I";
-regionID[1]="Region II";
-regionID[2]="Region III";
-regionID[3]="Region IV-A";
-regionID[4]="Region IV-B";
-regionID[5]="Region V";
-regionID[6]="Region VI";
-regionID[7]="Region VII";
-regionID[8]="Region VIII";
-regionID[9]="Region IX";
-regionID[10]="Region X";
-regionID[11]="Region XI";
-regionID[12]="Region XII";
-regionID[13]="Region XIII";
-regionID[14]="CAR";
-regionID[15]="NCR";
-regionID[16]="ARMM";
-var currRegion = 0;
-
 const phGini = 0.4267;
 const phMeanFamily = 4.4930;
 
@@ -36,20 +16,19 @@ var currFormatter = Intl.NumberFormat({
     style:'currency',
     currency:'PHP',
     minimumFractionDigits:1,
-    maximumFractionDigits:2
+    maximumFractionDigits:1
 })
 
 map.on('load', () =>{
-    map.getCanvas().style.cursor = '';
     map.addSource('phregions', {
        type: 'vector',
-        url: 'mapbox://asdfgeist.benj7kbg'
+        url: 'mapbox://asdfgeist.ckti8vq4a0o5520tcvzp2qjsq-1ig0o'
     });
     map.addLayer({
         id: 'fies',
         type: 'fill',
         source: 'phregions',
-        'source-layer': 'RegionsPhilippinesWithGini-7ysvm6',
+        'source-layer': 'Regions_w_Gini_1.1',
         paint: {
             'fill-color': /*'#ff00ff'*/
                 ['interpolate',
@@ -66,59 +45,12 @@ map.on('load', () =>{
     
     });
 
-    map.addLayer({
-        id: 'highlight',
-        type: 'fill',
-        source: 'phregions',
-        'source-layer': 'RegionsPhilippinesWithGini-7ysvm6',
-        paint: {
-            'fill-color': '#335577'
-         },
-        'filter': ['in', 'REGION', '']
-    
-    });
     
     console.log(map);
     map.on('click', 'fies', (e) => {
-        /*new mapboxgl.Popup()
+        console.log(typeof e);
+        new mapboxgl.Popup()
             .setLngLat(e.lngLat)
-            .setHTML("<b>"+e.features[0].properties['REGION']+"</b><br><p>"+'Mean Income: '+currFormatter.format(parseFloat(e.features[0].properties['mean_income'])))
-            .addTo(map);*/
-        document.getElementById("regionalFamExpenditure").innerHTML = currFormatter.format(parseFloat(e.features[0].properties['mean_expenditure']));
-        document.getElementById("regionalFamIncome").innerHTML = currFormatter.format(parseFloat(e.features[0].properties['mean_income']));
-        document.getElementById("regionalHouseSize").innerHTML = parseFloat(e.features[0].properties['mean_family_size']).toFixed(2);
-        document.getElementById("regionalGiniValue").innerHTML = e.features[0].properties['gini'];
-        /*document.getElementById("regionalName").innerHTML = e.features[0].properties['REGION'];*/
-        /*map.fitBounds(e.target.getBounds());*/
-    });
-    map.on('mousemove', 'fies', (e) => {
-        console.log('asfd');
-        map.getCanvas().style.cursor = 'pointer';
-        console.log(currRegion);
-        if (e.features.length > 0) {
-            /*const sameRegion = map.querySourceFeatures('counties', {
-                sourceLayer: 'RegionsPhilippinesWithGini-7ysvm6',
-                filter: ['get', 'REGION', e.features[0].properties['REGION']]
-            });*/
-            if (currRegion !== null) {
-                /*clear*/
-                map.setFilter('highlight', ['==', ['get', 'REGION'],null]);
-            }
-            currRegion = e.features[0].properties['REGION'];
-            console.log(currRegion);
-            
-            map.setFilter('highlight', ['==', ['get', 'REGION'], e.features[0].properties['REGION']])
-            currRegion = null;
-            console.log(currRegion);
-        }
-    });
-    map.on('mouseleave', 'fies', (e) => {
-        if (currRegion !== null) {
-            /*clear*/
-            map.setFilter('highlight', ['==', ['get', 'REGION'],null])
-        }
-        currRegion = null;
-        console.log(currRegion);
             .setHTML("<b>"+e.features[0].properties['REGION']+"</b><br><p>"+'Mean Income: '+
                         currFormatter.format(parseFloat(e.features[0].properties['mean_income']))+
                         "<br>Respondents: "+e.features[0].properties['count'])
