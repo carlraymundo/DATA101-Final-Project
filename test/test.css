@@ -1,0 +1,275 @@
+@font-face {
+	font-family: Cooper-Hewitt;
+	src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/213853/CooperHewitt-Medium.woff) format('woff');
+	font-weight: Medium;
+}
+
+body {
+	font-family: Lato, sans-serif;
+	font-size: 10px;
+	width: 100vw;
+	height: 100vh;
+}
+
+
+main {
+	overflow: hidden;
+	background-color: #ffffff;
+	display: grid;
+	grid-template-columns: 23px 1fr 23px;
+	grid-template-rows: auto 45vh;
+	grid-template-areas: ".side." ".map.";
+}
+
+#side {
+	grid-area: side;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 30px 30px 15px 45px 15px 15px 45px 15px 8px 15px 45px 15px 15px;
+    grid-template-areas: 
+    ". " 
+    "name" 
+    "population" 
+    "populationchart" 
+    "." 
+    "gender" 
+    "genderchart" 
+    "genderlegend" 
+    "." 
+    "age" 
+    "agechart" 
+    "agelegend" 
+    ".";
+}
+
+#map {
+	grid-area: map;
+	overflow: hidden;
+	border-radius: 25px;
+}
+
+#map canvas {
+	cursor: crosshair;
+}
+
+.name {
+	grid-area: name;
+	font-family: Cooper-Hewitt;
+	text-transform: uppercase;
+	font-size: 23px;
+	letter-spacing: 1px;
+}
+
+.population {
+	grid-area: population;
+}
+
+.populationchart {
+	grid-area: populationchart;
+	display: grid;
+	grid-template-rows: 45px;
+}
+
+.populationnumber {
+	text-align: center;
+	padding-top: 13px;
+	font-family: Cooper-Hewitt;
+	text-transform: uppercase;
+	font-size: 29px;
+}
+
+.distributionnumber {
+	text-align: center;
+	padding-top: 17px;
+	font-family: Cooper-Hewitt;
+	text-transform: uppercase;
+	font-size: 17px;
+}
+
+.gender {
+	grid-area: gender;
+}
+
+.genderchart {
+	grid-area: genderchart;
+	display: grid;
+	grid-template-rows: 45px;
+	color: #000;
+}
+
+.genderlegend {
+	grid-area: genderlegend;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	font-size: 12px;
+}
+
+.age {
+	grid-area: age;
+}
+
+.agechart {
+	grid-area: agechart;
+	display: grid;
+	grid-template-rows: 45px;
+}
+
+.agelegend {
+	grid-area: agelegend;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	font-size: 12px;
+}
+
+span {
+	padding-top: 2px;
+}
+
+small {
+	font-family: Lato, sans-serif;
+	padding-left: 5px;
+	font-size: 13px;
+	font-weight: Medium;
+}
+
+.darkgray {
+	background: #525252;
+	color: #fff;
+}
+
+.lightgray {
+	background: #ccc;
+}
+
+.gray {
+	background: #969696;
+}
+
+.footer {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	z-index: 100;
+	font-size: 9px;
+	padding-right: 25px;
+	padding-bottom: 10px;
+}
+@media only screen and (min-width: 700px) {
+    body {
+		font-family: Lato, sans-serif;
+		font-size: 17px;
+		background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at top center, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 120%) #989898;
+		background-blend-mode: multiply, multiply;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+    }
+    main {
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+		overflow: hidden;
+		border-radius: 25px;
+		width: 960px;
+		height: 540px;
+		background-color: #ffffff;
+		display: grid;
+		grid-template-columns: minmax(30%, 575px) 385px;
+		grid-template-rows: 540px;
+		grid-template-areas: "map side";
+	}
+	#side {
+		grid-area: side;
+		display: grid;
+		grid-template-columns: 30px 325px 30px;
+		grid-template-rows: 70px 95px 25px 45px 40px 25px 45px 40px 25px 45px 40px 45px;
+        grid-template-areas: 
+        ". . ." 
+        ". name ." 
+        ". population ." 
+        ". populationchart ." 
+        ". . ." ". gender ." 
+        ". genderchart ." 
+        ". genderlegend ." 
+        ". age ." 
+        ". agechart ." 
+        ". agelegend ." 
+        ". footer footer"
+	}
+	#map {
+		grid-area: map;
+		border-radius: 25px 0px 0px 25px;
+    }
+    .population {
+		grid-area: population;
+	}
+	.populationchart {
+		grid-area: populationchart;
+		display: grid;
+		grid-template-rows: 45px;
+	}
+	.populationnumber {
+		text-align: center;
+		padding-top: 13px;
+		font-family: Cooper-Hewitt;
+		text-transform: uppercase;
+		font-size: 25px;
+	}
+	.genderchart {
+		grid-area: genderchart;
+		display: grid;
+		grid-template-rows: 45px;
+		background: #eee;
+		color: #000;
+	}
+	.name {
+		padding: 0 0 0 0;
+		font-size: 40px;
+	}
+	.distributionnumber {
+		text-align: center;
+		padding-top: 16px;
+		font-family: Cooper-Hewitt;
+		text-transform: uppercase;
+		font-size: 17px;
+	}
+	.gender {
+		grid-area: gender;
+	}
+	.genderchart {
+		grid-area: genderchart;
+		display: grid;
+		grid-template-rows: 45px;
+		background: #eee;
+		color: #000;
+	}
+	.genderlegend {
+		grid-area: genderlegend;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		font-size: 12px;
+	}
+	.age {
+		grid-area: age;
+	}
+	.agechart {
+		grid-area: agechart;
+		display: grid;
+		grid-template-rows: 45px;
+	}
+	.agelegend {
+		grid-area: agelegend;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		font-size: 12px;
+	}
+	span {
+		padding-top: 10px;
+	}
+    .footer {
+		position: relative;
+		grid-area: footer;
+		font-size: 12px;
+		padding-top: 25px;
+		padding-left: 25px;
+	}
+}
