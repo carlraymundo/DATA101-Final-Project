@@ -64,21 +64,21 @@ map.on('load', () =>{
         
         
         if (phGini > parseFloat(e.features[0].properties['gini'])){
-            document.getElementById("gini-national-comparison").innerHTML =  "<b class='text-success'>" + (phGini - parseFloat(e.features[0].properties['gini'])).toFixed(4) +"</b>"+ " More than the national index."
+            document.getElementById("gini-national-comparison").innerHTML =  "<b class='text-warning'>" + (phGini - parseFloat(e.features[0].properties['gini'])).toFixed(4) +"</b>"+ " Less than the national index."
             // document.getElementById("gini-national").innerHTML = phGini - parseFloat(e.features[0].properties['gini']);
             // console.log(phGini - parseFloat(e.features[0].properties['gini']))
         } else{
-            document.getElementById("gini-national-comparison").innerHTML = "<b class='text-danger'>" + (parseFloat(e.features[0].properties['gini']) - phGini).toFixed(4) +"</b>"+ " Less than the national index."
+            document.getElementById("gini-national-comparison").innerHTML = "<b class='text-success'>" + (parseFloat(e.features[0].properties['gini']) - phGini).toFixed(4) +"</b>"+ " More than the national index."
             // document.getElementById("gini-national").innerHTML = (parseFloat(e.features[0].properties['gini']) - phGini).toFixed(4)
             // console.log(parseFloat(e.features[0].properties['gini']) - phGini)
         }
 
         if (phMeanFamily > parseFloat(e.features[0].properties['mean_family_size'])){
-            document.getElementById("famsize-national-comparison").innerHTML =  "<b class='text-success'>" + (phMeanFamily - parseFloat(e.features[0].properties['mean_family_size'])).toFixed(2) +"</b>"+ " More than the national average."
+            document.getElementById("famsize-national-comparison").innerHTML =  "<b class='text-danger'>" + (phMeanFamily - parseFloat(e.features[0].properties['mean_family_size'])).toFixed(2) +"</b>"+ " Less than the national average."
             // document.getElementById("gini-national").innerHTML = phGini - parseFloat(e.features[0].properties['gini']);
             // console.log(phGini - parseFloat(e.features[0].properties['gini']))
         } else{
-            document.getElementById("famsize-national-comparison").innerHTML = "<b class='text-danger'>" + (parseFloat(e.features[0].properties['mean_family_size']) - phMeanFamily).toFixed(2) +"</b>"+ " Less than the national average."
+            document.getElementById("famsize-national-comparison").innerHTML = "<b class='text-success'>" + (parseFloat(e.features[0].properties['mean_family_size']) - phMeanFamily).toFixed(2) +"</b>"+ " More than the national average."
             // document.getElementById("gini-national").innerHTML = (parseFloat(e.features[0].properties['gini']) - phGini).toFixed(4)
             // console.log(parseFloat(e.features[0].properties['gini']) - phGini)
         }
