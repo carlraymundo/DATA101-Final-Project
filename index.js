@@ -64,7 +64,7 @@ map.on('load', () =>{
         
         
         if (phGini > parseFloat(e.features[0].properties['gini'])){
-            document.getElementById("gini-national-comparison").innerHTML =  "<b class='text-warning'>" + (phGini - parseFloat(e.features[0].properties['gini'])).toFixed(4) +"</b>"+ " Less than the national index."
+            document.getElementById("gini-national-comparison").innerHTML =  "<b class='text-danger'>" + (phGini - parseFloat(e.features[0].properties['gini'])).toFixed(4) +"</b>"+ " Less than the national index."
             // document.getElementById("gini-national").innerHTML = phGini - parseFloat(e.features[0].properties['gini']);
             // console.log(phGini - parseFloat(e.features[0].properties['gini']))
         } else{
