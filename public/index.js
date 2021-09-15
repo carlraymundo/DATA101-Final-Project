@@ -19,6 +19,7 @@ regionID[14]="CAR";
 regionID[15]="NCR";
 regionID[16]="ARMM";
 var currRegion = 0;
+var selectRegion = 0;
 
 const phGini = 0.4267;
 const phMeanFamily = 4.4930;
@@ -91,6 +92,17 @@ map.on('load', () =>{
         'filter': ['in', 'REGION', '']
     
     });
+    map.addLayer({
+        id: 'selected',
+        type: 'fill',
+        source: 'phregions',
+        'source-layer': 'RegionsPhilippinesWithGini-7ysvm6',
+        paint: {
+            'fill-color': '#AA7755'
+         },
+        'filter': ['in', 'REGION', '']
+    
+    });
     
     console.log(map);
     map.on('click', 'fies', (e) => {
@@ -102,7 +114,7 @@ map.on('load', () =>{
         document.getElementById("regionalFamIncome").innerHTML = currFormatter.format(parseFloat(e.features[0].properties['mean_income']));
         document.getElementById("regionalHouseSize").innerHTML = parseFloat(e.features[0].properties['mean_family_size']).toFixed(2);
         document.getElementById("regionalGiniValue").innerHTML = e.features[0].properties['gini'];
-        /*document.getElementById("regionalName").innerHTML = e.features[0].properties['REGION'];*/
+        document.getElementById("regionname").innerHTML = e.features[0].properties['REGION'];
         /*map.fitBounds(e.target.getBounds());*/
             /*.setHTML("<b>"+e.features[0].properties['REGION']+"</b><br><p>"+'Mean Income: '+
                         currFormatter.format(parseFloat(e.features[0].properties['mean_income']))+
@@ -151,8 +163,16 @@ map.on('load', () =>{
                        {key: 'Recreation', value: rec},{key: 'Miscellany', value: misc},
                        {key: 'Furniture', value: furni},{key: 'Rent', value: rent},
                         {key: 'Occasions', value: occa},{key: 'Other', value: other}];
-            console.log('qwe')
-            updateData(dataUpdate);
+        
+        updateData(dataUpdate);
+        if (selectRegion !== null) {
+            /*clear*/
+            map.setFilter('selected', ['==', ['get', 'REGION'],null]);
+        }
+        selectRegion = e.features[0].properties['REGION'];
+
+        map.setFilter('selected', ['==', ['get', 'REGION'], e.features[0].properties['REGION']])
+        selectRegion = null;
     });
     map.on('mousemove', 'fies', (e) => {
         map.getCanvas().style.cursor = 'pointer';
