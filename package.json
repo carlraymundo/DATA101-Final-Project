@@ -1,5 +1,5 @@
 {
-  "name": "DATA101-Final-Project",
+  "name": "data101-final-project",
   "version": "1.0.0",
   "description": "Final Project for the course Data Visualization",
   "main": "index.js",
@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,8 @@
     "connect": "^3.7.0",
     "express": "^4.17.1",
     "serve-static": "^1.14.1"
+  },
+  "engines":{
+    "node": "14.17.4"
   }
 }
