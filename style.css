@@ -519,9 +519,9 @@ tr td:last-child{
 /*adjust map*/
 #map{
     position: absolute;
-    padding: 2rem;
-    width: 50%;
-    height: 30%;
+    padding: 16px;
+    width: 97%;
+    height: 85%;
 }
 
 body{

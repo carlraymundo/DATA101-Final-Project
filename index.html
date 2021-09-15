@@ -21,314 +21,179 @@
 <body>
 
     <input type ="checkbox" id="nav-toggle">
-
-
-    
-    <!-- <div class="sidebar">
-        <div class="sidebar-brand">
-            <h2><span class="lab la-accusoft"></span><span>DATA101</span></h2>
-        </div>
-
-        <div class="sidebar-menu">
-            <ul>
-                <li>
-                    <a href="" class="active"><span class="las la-igloo"></span>
-                    <span>Dashboard</span></a>
-                </li>
-                <li>
-                    <a href=""><span class="las la-users"></span>
-                    <span>Customers</span></a>
-                </li>
-                <li>
-                    <a href=""><span class="las la-clipboard-list"></span>
-                    <span>People</span></a>
-                </li>
-            </ul>
-        </div>
-    </div>
--->
-
     <div class="main-content">
-        <header>
-            <h1>
-                <label for="nav-toggle">
-                    <span class="las la-bars"></span>
-                </label>
+      <header>
+          <h1>
+              <label for="nav-toggle">
+                  <span class="las la-bars"></span>
+              </label>
 
-                DATA101
-            </h1>
+              DATA101
+          </h1>
 
-            <!--
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="Search here"/>
-            </div>
-
-            <div class="user-wrapper">
-                <img src="img/2.jpg" width="40px" height="40px" alt="">
-                <div>
-                    <h4>John Doe</h4>
-                    <small>Super admin</small>
-                </div>
-            </div>
-            -->
-        </header>
-
+      </header>
+    </div>
         <main>
-
-            <div class="map-and-cards">
-
-                <div class="map">
-                    <div class="card-header">
-                        <h2>Map of the Philippines</h2>
-                        <span id="regionalName"></span>
-
-                        <!-- <button>See all <span class="las la-arrow-right">
-                        </span></button> -->
-                    </div>
-                    <div id="map"></div>
-
-                    <script src="index.js"></script>
-                </div>
-
-                <div class="card-1">
+          
+          <!--Template 3 from https://spark.bootlab.io/dashboard-default.html?theme=modern-->
+          <br>
+          <div class="row">
+            <div class="col-xl-6 col-xxl-7">
+                <div class="card flex-fill w-100">
+                  <!-- Mapbox Philippine Map -->
+                  <div class="card-body py-3">
                     <div>
-                        <h1 id="regionalFamExpenditure" class="fs-3"></h1>
-                        <span>Mean Family Expenditure</span>
-                        <span></p><small><em>*in Pesos (Php).</em></small></span>
-                    </div>
-                    <div>
-                        <span class="las la-clipboard"></span>
+                        <div>
+                            <div style="height:400px;">
+                                <div id="map"></div>
+                                <script src="index.js"></script>
+                            </div>
+                            <div>
+                                <div id=""></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card-2">
-                    <div>
-                        <h1 id="regionalFamIncome" class="fs-3"></h1>
-                        <span>Mean Family Income</span>
-                        <span></p><small><em>*in Pesos (Php).</em></small></span>
-                    </div>
-                    <div>
-                        <span class="lab la-google-wallet"></span>
-                    </div>
-                </div>
 
-                <div class="card-3">
-                    <div>
-                        <h1 id="regionalHouseSize" class="fs-2"></h1>
-                        <span>Mean Family Size</span><br>
-                        <small class="mb-0" id="famsize-national-comparison"> 
-                        </small>
-                    </div>
-                    <div>
-                        <span class="las la-users"></span>
-                    </div>
-                </div>
+                  <div class="card-header">
+                      <div class="card-actions float-end">
+                          <a href="#" class="me-1">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw align-middle"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                          </a>
+                          <div class="d-inline-block dropdown show">
+                              <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                              </a>
 
-                <div class="card-4">
-                    <div>
-                        <h1 id="regionalGiniValue" class="fs-2"></h1>
-                        <span>Gini Coefficient</span>
-                        <small class="mb-0" id="gini-national-comparison"> 
-                        </small>
-                    </div>
-                    <div>
-                        <span class="las la-users"></span>
-                    </div>
+                              <div class="dropdown-menu dropdown-menu-end">
+                                  <a class="dropdown-item" href="#">Action</a>
+                                  <a class="dropdown-item" href="#">Another action</a>
+                                  <a class="dropdown-item" href="#">Something else here</a>
+                              </div>
+                          </div>
+                      </div>
+                      <h5 class="card-title mb-0">Map of the Philippines</h5>
+                  </div>
+
+                    
                 </div>
             </div>
 
-            <div class="chart-grid">
-              <div class="expenditure-breakdown">
-                  <h1>Expenditure Breakdown</h1>
-              </div>
+            <div class="col-xl-6 col-xxl-5 d-flex">
+                <div class="w-100">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Region Gini Value</h5>
+                                        </div>
 
-              <div class="other-chart">
-                  <h1>Other Chart</h1>
-              </div>
+                                        <div class="col-auto">
+                                            <div class="avatar">
+                                                <div class="avatar-title rounded-circle bg-primary-dark">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-truck align-middle"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="display-5 mt-1 mb-3" id="regionalGiniValue">0</h1>
+                                    <div class="mb-0">
+                                        <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Region House Size</h5>
+                                        </div>
 
-          </div>
-            
-            <!--
-
-                <div class="recent-grid">
-                <div class="projects">
-                    <div class="card">
-                        <div class="card-header">
-                            <h2>Recent Projects</h2>
-
-                            <button>See all <span class="las la-arrow-right">
-                            </span></button>
+                                        <div class="col-auto">
+                                            <div class="avatar">
+                                                <div class="avatar-title rounded-circle bg-primary-dark">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users align-middle"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="display-5 mt-1 mb-3" id="regionalHouseSize">0</h1>
+                                    <div class="mb-0">
+                                        <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Region Family Income</h5>
+                                        </div>
 
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table width="100%">
-                                    <thead>
-                                        <tr>
-                                            <td>Project Title</td>
-                                            <td>Department</td>
-                                            <td>Status</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>UI/UX Design</td>
-                                            <td>UI Team</td>
-                                            <td>
-                                                <span class="status purple"></span>
-                                                review
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Web development</td>
-                                            <td>Frontend</td>
-                                            <td>
-                                                <span class="status pink"></span>
-                                                in progress
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ushop app</td>
-                                            <td>Mobile Team</td>
-                                            <td>
-                                                <span class="status orange"></span>
-                                                pending
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>UI/UX Design</td>
-                                            <td>UI Team</td>
-                                            <td>
-                                                <span class="status"></span>
-                                                review
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Project Title</td>
-                                            <td>Department</td>
-                                            <td>Status</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>UI/UX Design</td>
-                                            <td>UI Team</td>
-                                            <td>
-                                                <span class="status purple"></span>
-                                                review
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Web development</td>
-                                            <td>Frontend</td>
-                                            <td>
-                                                <span class="status pink"></span>
-                                                in progress
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ushop app</td>
-                                            <td>Mobile Team</td>
-                                            <td>
-                                                <span class="status orange"></span>
-                                                pending
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>UI/UX Design</td>
-                                            <td>UI Team</td>
-                                            <td>
-                                                <span class="status"></span>
-                                                review
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                        <div class="col-auto">
+                                            <div class="avatar">
+                                                <div class="avatar-title rounded-circle bg-primary-dark">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign align-middle"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="display-5 mt-1 mb-3" id="regionalFamIncome">0</h1>
+                                    <div class="mb-0">
+                                        <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Region Family Expenditure</h5>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <div class="avatar">
+                                                <div class="avatar-title rounded-circle bg-primary-dark">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart align-middle"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="display-5 mt-1 mb-3" id="regionalFamExpenditure">0</h1>
+                                    <div class="mb-0">
+                                        <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Expenditure Breakdown Chart -->
+        
+        <h1>Expenditure Breakdown<h1>
+          <div class="row">
+            <div class="col-6">
+              <div id="barContainer"></div>
+            </div>
+            <div class="col-6">
+              <div id="barContainer2"></div>
+            </div>
+          </div>
+         
 
-                <div class="customers">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>New customers</h3>
-
-                            <button>See all <span class="las la-arrow-right">
-                            </span></button>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="img/2.jpg" width="40px" height="40px" alt="">
-                                    <div>
-                                        <h4>Lewis S. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div>
-                                    <img src="img/2.jpg" width="40px" height="40px" alt="">
-                                    <div>
-                                        <h4>Lewis S. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div>
-                                    <img src="img/2.jpg" width="40px" height="40px" alt="">
-                                    <div>
-                                        <h4>Lewis S. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div>
-                                    <img src="img/2.jpg" width="40px" height="40px" alt="">
-                                    <div>
-                                        <h4>Lewis S. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                        </div>
+          
 
 
-                    </div>
-            </div> 
-
-            --> 
-
-            <!--Template 1: one whole row with colors-->
+    <!--
+            Template 1: one whole row with colors
             <br>
             <div><h3>Template 1</h3></div>
             <div class="row">
@@ -383,7 +248,7 @@
                 </div>
             </div>
 
-        <!--Template 2-->
+        Template 2
         
         <div><h3>Template 2</h3></div>
 
@@ -721,138 +586,6 @@
           </section>
           </div>
 
-          <!--Template 3 from https://spark.bootlab.io/dashboard-default.html?theme=modern-->
-          <br>
-          <div class="row">
-            <div class="col-xl-6 col-xxl-7">
-                <div class="card flex-fill w-100">
-                    <div class="card-header">
-                        <div class="card-actions float-end">
-                            <a href="#" class="me-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw align-middle"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
-                            </a>
-                            <div class="d-inline-block dropdown show">
-                                <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
-                        <h5 class="card-title mb-0">Map of the Philippines</h5>
-                    </div>
-                    <div class="card-body py-3">
-                        <div class="chart chart-sm"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                            <canvas id="chartjs-dashboard-line" style="display: block; height: 250px; width: 613px;" class="chartjs-render-monitor" width="766" height="312"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-6 col-xxl-5 d-flex">
-                <div class="w-100">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col mt-0">
-                                            <h5 class="card-title">Sales Today</h5>
-                                        </div>
-
-                                        <div class="col-auto">
-                                            <div class="avatar">
-                                                <div class="avatar-title rounded-circle bg-primary-dark">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-truck align-middle"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h1 class="display-5 mt-1 mb-3">2.562</h1>
-                                    <div class="mb-0">
-                                        <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.65% </span>
-                                        Less sales than usual
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col mt-0">
-                                            <h5 class="card-title">Visitors Today</h5>
-                                        </div>
-
-                                        <div class="col-auto">
-                                            <div class="avatar">
-                                                <div class="avatar-title rounded-circle bg-primary-dark">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users align-middle"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h1 class="display-5 mt-1 mb-3">17.212</h1>
-                                    <div class="mb-0">
-                                        <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 5.50% </span>
-                                        More visitors than usual
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col mt-0">
-                                            <h5 class="card-title">Total Earnings</h5>
-                                        </div>
-
-                                        <div class="col-auto">
-                                            <div class="avatar">
-                                                <div class="avatar-title rounded-circle bg-primary-dark">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign align-middle"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h1 class="display-5 mt-1 mb-3">$24.300</h1>
-                                    <div class="mb-0">
-                                        <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 8.35% </span>
-                                        More earnings than usual
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col mt-0">
-                                            <h5 class="card-title">Pending Orders</h5>
-                                        </div>
-
-                                        <div class="col-auto">
-                                            <div class="avatar">
-                                                <div class="avatar-title rounded-circle bg-primary-dark">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart align-middle"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h1 class="display-5 mt-1 mb-3">43</h1>
-                                    <div class="mb-0">
-                                        <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -4.25% </span>
-                                        Less orders than usual
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <br>
 
         <div class="row">
@@ -962,8 +695,8 @@
                 </div>
             </div>
         </div>
-        <!--End of template 3-->
-
+        End of template 3
+      -->
         </main>
     </div>
 </body>
