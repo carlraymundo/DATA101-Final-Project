@@ -83,11 +83,12 @@ map.on('load', () =>{
 
     map.addLayer({
         id: 'highlight',
-        type: 'fill',
+        type: 'line',
         source: 'phregions',
         'source-layer': 'RegionsPhilippinesWithGini-7ysvm6',
         paint: {
-            'fill-color': '#335577'
+            'line-color': '#AA7755',
+            'line-width': 2
          },
         'filter': ['in', 'REGION', '']
     

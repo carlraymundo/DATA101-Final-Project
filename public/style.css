@@ -1,5 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+.infotooltip .tooltipshow{
+  margin: 10px 10px 10px 10px;
+  visibility: hidden;
+  position: absolute;
+  z-index: 2;
+}
+
+.infotooltip .tooltipshow .tooltipshowtext{
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: grey;
+  color: #000000;
+  text-align: align-left;
+  padding: 15px 15px;
+  border-radius: 6px;
+}
+
+
+.infotooltip:hover .tooltipshow {
+  transition-delay: .75s;
+  visibility: visible;
+}
+
+
+
 root{
     --main-color: #DD2F6E;
     --color-dark: #1D2231;
