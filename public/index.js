@@ -71,12 +71,12 @@ map.on('load', () =>{
                 ['linear'],
                 ['get', 'gini'],
                 0,'#ffffff',
-                0.1,'#e0fff3',
-                0.2,'#ace6cf',
-                0.3,'#7ac2a5',
-                0.4,'#217a57',
-                0.5,'#093b27'],
-            'fill-outline-color': '#555555'
+                0.1,'#ccffdd',
+                0.2,'#88cc99',
+                0.3,'#448855',
+                0.4,'#004411',
+                0.5,'#000000'],
+            'fill-outline-color': '#000000'
          }
     
     });
@@ -91,11 +91,11 @@ map.on('load', () =>{
                   '0.5<=x'];
     const colors = [
                 '#ffffff',
-                '#e0fff3',
-                '#ace6cf',
-                '#7ac2a5',
-                '#217a57',
-                '#093b27'];
+                '#ccffdd',
+                '#88cc99',
+                '#449966',
+                '#004411',
+                '#000000'];
 
     layers.forEach((layer, i) => {
       const color = colors[i];
@@ -207,10 +207,6 @@ map.on('load', () =>{
     map.on('mousemove', 'fies', (e) => {
         map.getCanvas().style.cursor = 'pointer';
         if (e.features.length > 0) {
-            /*const sameRegion = map.querySourceFeatures('counties', {
-                sourceLayer: 'RegionsPhilippinesWithGini-7ysvm6',
-                filter: ['get', 'REGION', e.features[0].properties['REGION']]
-            });*/
             if (currRegion !== null) {
                 /*clear*/
                 map.setFilter('highlight', ['==', ['get', 'REGION'],null]);
@@ -305,7 +301,8 @@ map.on('load', () =>{
     };
   }).then(function(dataset) {
       // transitions
-        console.log(dataset);
+      let sorted = dataset
+      console.log(dataset);
       let d = 500;
       let tRemove = d3.transition()
           .duration(d);
