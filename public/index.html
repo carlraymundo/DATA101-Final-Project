@@ -23,11 +23,10 @@
     <input type ="checkbox" id="nav-toggle">
     <div class="main-content">
       <header>
-          <h1>
+          <h1 class="header-title">
               <label for="nav-toggle">
                   <span class="las la-bars"></span>
               </label>
-
               DATA101
           </h1>
 
@@ -178,13 +177,27 @@
         
         <!-- Expenditure Breakdown Chart -->
         
-        <h1>Expenditure Breakdown<h1>
+        <h1 class="header-title">Expenditure Breakdown<h1>
           <div class="row">
             <div class="col-6">
-              <div id="barContainer"></div>
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="card-title mb-0">Expenditure Breakdown</h5>
+                </div>
+                <div class="card-body">
+                <div id="barContainer"></div>
+              </div>
+              </div>
             </div>
             <div class="col-6">
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="card-title mb-0">Add Description Here</h5>
+                </div>
+                <div class="card-body">
               <div id="barContainer2"></div>
+            </div>
+            </div>
             </div>
           </div>
          
