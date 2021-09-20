@@ -6,6 +6,10 @@
   position: absolute;
   z-index: 2;
 }
+.ginititle{
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+}
 
 .infotooltip .tooltipshow .tooltipshowtext{
   background-color: white;

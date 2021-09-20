@@ -87,7 +87,7 @@ map.on('load', () =>{
         source: 'phregions',
         'source-layer': 'RegionsPhilippinesWithGini-7ysvm6',
         paint: {
-            'line-color': '#AA7755',
+            'line-color': '#DD8855',
             'line-width': 2
          },
         'filter': ['in', 'REGION', '']
@@ -99,7 +99,7 @@ map.on('load', () =>{
         source: 'phregions',
         'source-layer': 'RegionsPhilippinesWithGini-7ysvm6',
         paint: {
-            'fill-color': '#AA7755'
+            'fill-color': '#DD8855'
          },
         'filter': ['in', 'REGION', '']
     
@@ -206,10 +206,10 @@ map.on('load', () =>{
                {key: 'Fuel', value: 0},{key: 'Communication', value: 0},
                {key: 'Transportation', value: 0},{key: 'Education', value: 0},
                {key: 'Recreation', value: 0},{key: 'Miscellany', value: 0},
-               {key: 'Furniture', value: 0},{key: 'XI', value: 0},
+               {key: 'Furniture', value: 0},{key: 'Rent', value: 0},
                 {key: 'Occasions', value: 0},{key: 'Other', value: 200000}];
   // chart dimensions 
-  let width = 600, height = 400, margin = {t:10,b:30,l:30,r:10};
+  let width = 850, height = 400, margin = {t:10,b:30,l:100,r:10};
   // svg element
       
     let svg = d3.select('div#barContainer2')
