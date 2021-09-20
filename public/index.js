@@ -81,6 +81,35 @@ map.on('load', () =>{
     
     });
 
+    const legend = document.getElementById('legend');
+    const layers = [
+                  '0<=x<0.1',
+                  '0.1<=x<0.2',
+                  '0.2<=x<0.3',
+                  '0.3<=x<0.4',
+                  '0.4<=x<0.5',
+                  '0.5<=x'];
+    const colors = [
+                '#ffffff',
+                '#e0fff3',
+                '#ace6cf',
+                '#7ac2a5',
+                '#217a57',
+                '#093b27'];
+
+    layers.forEach((layer, i) => {
+      const color = colors[i];
+      const item = document.createElement('div');
+      const key = document.createElement('span');
+      key.className = 'legend-key';
+      key.style.backgroundColor = color;
+
+      const value = document.createElement('span');
+      value.innerHTML = `${layer}`;
+      item.appendChild(key);
+      item.appendChild(value);
+      legend.appendChild(item);
+    });
     map.addLayer({
         id: 'highlight',
         type: 'line',
@@ -216,7 +245,7 @@ map.on('load', () =>{
       .append('svg')
       .attr('width', width)
       .attr('height', height)
-      .style('border', 'solid 1px #222');
+      .style('border', 'solid 1px #fff');
     let chart = svg.append('g')
         .classed('chart', true)
         .attr('transform', `translate(${margin.l},${margin.t})`);
@@ -232,7 +261,7 @@ map.on('load', () =>{
       .append('svg')
       .attr('width', width)
       .attr('height', height)
-      .style('border', 'solid 1px #222');
+      .style('border', 'solid 1px #fff');
     
     let chart2 = svg2.append('g')
         .classed('chart', true)
