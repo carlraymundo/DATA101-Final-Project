@@ -303,9 +303,6 @@ main{
     border: 1px solid #DD2F6E;
 }
 
-table {
-    border-collapse: collapse;
-}
 
 thead tr{
     border-top: 1px solid #f0f0f0;
@@ -861,19 +858,7 @@ caption {
  padding-top:.75rem;
  text-align:left
 }
-th {
- text-align:inherit;
- text-align:-webkit-match-parent
-}
-tbody,
-td,
-tfoot,
-th,
-thead,
-tr {
- border:0 solid;
- border-color:inherit
-}
+
 label {
  display:inline-block
 }
@@ -2244,36 +2229,15 @@ progress {
   --bs-gutter-y:6rem
  }
 }
-.table {
- --bs-table-bg:transparent;
- --bs-table-accent-bg:transparent;
- --bs-table-striped-color:#3e4676;
- --bs-table-striped-bg:#f8f9fa;
- --bs-table-active-color:#3e4676;
- --bs-table-active-bg:rgba(0,0,0,0.1);
- --bs-table-hover-color:#3e4676;
- --bs-table-hover-bg:rgba(0,0,0,0.075);
- border-color:#dee2e6;
- color:#3e4676;
- margin-bottom:1rem;
- vertical-align:top;
- width:100%
-}
-.table>:not(caption)>*>* {
- background-color:var(--bs-table-bg);
- border-bottom-width:1px;
- box-shadow:inset 0 0 0 9999px var(--bs-table-accent-bg);
- padding:.75rem
-}
+
+
 .table>tbody {
  vertical-align:inherit
 }
 .table>thead {
  vertical-align:bottom
 }
-.table>:not(:last-child)>:last-child>* {
- border-bottom-color:currentColor
-}
+
 .caption-top {
  caption-side:top
 }
@@ -7225,9 +7189,7 @@ fieldset:disabled .btn {
 .me-auto {
  margin-right:auto!important
 }
-.mb-0 {
- margin-bottom:0!important
-}
+
 .mb-1 {
  margin-bottom:.25rem!important
 }
@@ -7675,9 +7637,7 @@ fieldset:disabled .btn {
 .text-start {
  text-align:left!important
 }
-.text-end {
- text-align:right!important
-}
+
 .text-center {
  text-align:center!important
 }
@@ -7709,9 +7669,7 @@ fieldset:disabled .btn {
  word-wrap:break-word!important;
  word-break:break-word!important
 }
-.text-primary {
- color:#3b7ddd!important
-}
+
 .text-secondary {
  color:#6f42c1!important
 }
@@ -7724,12 +7682,8 @@ fieldset:disabled .btn {
 .text-info {
  color:#20c997!important
 }
-.text-warning {
- color:#fd7e14!important
-}
-.text-danger {
- color:#dc3545!important
-}
+
+
 .text-light {
  color:#e9ecef!important
 }
@@ -12531,10 +12485,7 @@ a.card {
 .card-table {
  margin-bottom:0
 }
-.card-table tr td:first-child,
-.card-table tr th:first-child {
- padding-left:1.25rem
-}
+
 .card-table tr td:last-child,
 .card-table tr th:last-child {
  padding-right:1.25rem
@@ -12584,9 +12535,7 @@ a.card {
 .chart-lg {
  min-height:350px
 }
-.chart canvas {
- max-width:100%
-}
+
 .chat-online {
  color:#34ce57
 }
@@ -13467,43 +13416,10 @@ a.sidebar-link svg {
   transform:rotate(359deg)
  }
 }
-.table tbody,
-.table td,
-.table tfoot,
-.table th,
-.table thead,
-.table tr {
- border-color:#dee2e6
-}
-.card>.dataTables_wrapper .table.dataTable,
-.card>.table,
-.card>.table-responsive-lg .table,
-.card>.table-responsive-md .table,
-.card>.table-responsive-sm .table,
-.card>.table-responsive-xl .table,
-.card>.table-responsive .table {
- border-bottom:0;
- border-left:0;
- border-right:0;
- margin-bottom:0
-}
-.card>.dataTables_wrapper .table.dataTable td:first-child,
-.card>.dataTables_wrapper .table.dataTable th:first-child,
-.card>.table-responsive-lg .table td:first-child,
-.card>.table-responsive-lg .table th:first-child,
-.card>.table-responsive-md .table td:first-child,
-.card>.table-responsive-md .table th:first-child,
-.card>.table-responsive-sm .table td:first-child,
-.card>.table-responsive-sm .table th:first-child,
-.card>.table-responsive-xl .table td:first-child,
-.card>.table-responsive-xl .table th:first-child,
-.card>.table-responsive .table td:first-child,
-.card>.table-responsive .table th:first-child,
-.card>.table td:first-child,
-.card>.table th:first-child {
- border-left:0;
- padding-left:1.25rem
-}
+
+
+
+
 .card>.dataTables_wrapper .table.dataTable td:last-child,
 .card>.dataTables_wrapper .table.dataTable th:last-child,
 .card>.table-responsive-lg .table td:last-child,
@@ -13521,22 +13437,7 @@ a.sidebar-link svg {
  border-right:0;
  padding-right:1.25rem
 }
-.card>.dataTables_wrapper .table.dataTable tr:first-child td,
-.card>.dataTables_wrapper .table.dataTable tr:first-child th,
-.card>.table-responsive-lg .table tr:first-child td,
-.card>.table-responsive-lg .table tr:first-child th,
-.card>.table-responsive-md .table tr:first-child td,
-.card>.table-responsive-md .table tr:first-child th,
-.card>.table-responsive-sm .table tr:first-child td,
-.card>.table-responsive-sm .table tr:first-child th,
-.card>.table-responsive-xl .table tr:first-child td,
-.card>.table-responsive-xl .table tr:first-child th,
-.card>.table-responsive .table tr:first-child td,
-.card>.table-responsive .table tr:first-child th,
-.card>.table tr:first-child td,
-.card>.table tr:first-child th {
- border-top:0
-}
+
 .card>.dataTables_wrapper .table.dataTable tr:last-child td,
 .card>.table-responsive-lg .table tr:last-child td,
 .card>.table-responsive-md .table tr:last-child td,
@@ -13559,9 +13460,7 @@ a.sidebar-link svg {
  height:18px;
  width:18px
 }
-.table>tbody>tr>td {
- vertical-align:middle
-}
+
 .card>.dataTables_wrapper .table.dataTable {
  margin-bottom:0!important;
  margin-top:0!important
@@ -14560,18 +14459,8 @@ pre.snippet {
   clear:none!important
  }
 }
-table.dataTable {
- border-collapse:separate!important;
- border-spacing:0;
- clear:both;
- margin-bottom:6px!important;
- margin-top:6px!important;
- max-width:none!important
-}
-table.dataTable td,
-table.dataTable th {
- box-sizing:content-box
-}
+
+
 table.dataTable td.dataTables_empty,
 table.dataTable th.dataTables_empty {
  text-align:center
@@ -14633,14 +14522,8 @@ table.dataTable>thead>tr>td:not(.sorting_disabled),
 table.dataTable>thead>tr>th:not(.sorting_disabled) {
  padding-right:30px
 }
-table.dataTable>thead .sorting,
-table.dataTable>thead .sorting_asc,
-table.dataTable>thead .sorting_asc_disabled,
-table.dataTable>thead .sorting_desc,
-table.dataTable>thead .sorting_desc_disabled {
- cursor:pointer;
- position:relative
-}
+
+
 table.dataTable>thead .sorting:after,
 table.dataTable>thead .sorting:before,
 table.dataTable>thead .sorting_asc:after,
@@ -21756,23 +21639,8 @@ button.toast-close-button {
   width:25em
  }
 }
-/*!
- * Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com
- * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
- */.fa,
-.fab,
-.fad,
-.fal,
-.far,
-.fas {
- -moz-osx-font-smoothing:grayscale;
- -webkit-font-smoothing:antialiased;
- text-rendering:auto;
- display:inline-block;
- font-style:normal;
- font-variant:normal;
- line-height:1
-}
+
+
 .fa-lg {
  font-size:1.33333em;
  line-height:.75em;
@@ -21814,10 +21682,7 @@ button.toast-close-button {
 .fa-10x {
  font-size:10em
 }
-.fa-fw {
- text-align:center;
- width:1.25em
-}
+
 .fa-ul {
  list-style-type:none;
  margin-left:2.5em;
@@ -26383,15 +26248,7 @@ button.toast-close-button {
  url(../fonts/fa-solid-900.ttf) format("truetype"),
  url(../fonts/fa-solid-900.svg#fontawesome) format("svg")
 }
-.fa,
-.far,
-.fas {
- font-family:Font Awesome\ 5 Free
-}
-.fa,
-.fas {
- font-weight:900
-}
+
 /*!
  * Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
