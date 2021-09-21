@@ -21,25 +21,13 @@ regionID[16]="ARMM";
 var currRegion = 0;
 var selectRegion = 0;
 
+  // chart dimensions 
+const width = 700, height = 400, margin = {t:10,b:30,l:170,r:10};
 var region_color = d3.scaleOrdinal().range(["#8B0000","#2E8B57","#000080","#CCCC00","#ff709a","#696969","#FF7F50","#9400D3","#00FA9A","#8B4513","#708090","#00CED1","#006400", "#FF1493", "#CD853F", "#FFD700", "#191970"])
 var exp_color = d3.scaleOrdinal().range(["#8B0000","#000080","#CCCC00","#ff709a","#696969","#FF7F50","#FFD700","#00FA9A","#8B4513","#4B0082","#00CED1","#006400","#CD853F", "#9400D3"])
 const phGini = 0.4267;
 const phMeanFamily = 4.4930;
 
-let food = 0;
-let clothes = 0;
-let hh = 0;
-let health = 0;
-let fuel = 0;
-let comm = 0;
-let trans = 0;
-let educ = 0;
-let rec =0;
-let misc =0;
-let furni = 0;
-let rent = 0;
-let occa = 0;
-let other = 0;
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/asdfgeist/ckti3tekg2oo918wb39r6w2o1',
@@ -153,7 +141,6 @@ map.on('load', () =>{
                         currFormatter.format(parseFloat(e.features[0].properties['mean_income']))+
                         "<br>Respondents: "+e.features[0].properties['count'])
             .addTo(map);*/
-
         /*
 
         */
@@ -171,6 +158,13 @@ map.on('load', () =>{
             rent = parseFloat(e.features[0].properties['mean_rent_exp']);
             occa = parseFloat(e.features[0].properties['mean_occasions_exp']);
             other = parseFloat(e.features[0].properties['mean_others_exp']);
+        
+            reg = parseFloat(e.features[0].properties['mean_reg_salary']);
+            season = parseFloat(e.features[0].properties['mean_seasonal_salary']);
+            entrep = parseFloat(e.features[0].properties['mean_entrep_inc']);
+            otherSal = parseFloat(e.features[0].properties['mean_others_salary']);
+            abroad = parseFloat(e.features[0].properties['cash_abroad']);
+            domestic = parseFloat(e.features[0].properties['cash_domestic']);
 
           let dataUpdate = [{key: 'Food', value: food},{key: 'Clothes', value: clothes},
                        {key: 'Household', value: hh},{key: 'Health', value: health},
@@ -180,7 +174,12 @@ map.on('load', () =>{
                        {key: 'Furniture', value: furni},{key: 'Rent', value: rent},
                         {key: 'Occasions', value: occa},{key: 'Other', value: other}];
         
-        updateData(dataUpdate);
+          let dataUpdateInc = [{key: 'Regular Income', value: reg},{key: 'Seasonal Income', value: season},
+                       {key: 'Entrepreneurial Income', value: entrep},{key: 'Other Sources of Income', value: otherSal},
+                       {key: 'Support From Abroad', value: abroad},{key: 'Support From Domestic Sources', value: domestic}];
+        
+        updateData(dataUpdate, chart2, xAxis2, yAxis2);
+        updateData(dataUpdateInc, chart3, xAxis3, yAxis3);
         if (selectRegion !== null) {
             /*clear*/
             map.setFilter('selected', ['==', ['get', 'REGION'],null]);
@@ -225,16 +224,6 @@ map.on('load', () =>{
         currRegion = null;
     });
     
-  // datasets
-  let dataRegion = [{key: 'Food', value: 0},{key: 'Clothes', value: 0},
-               {key: 'Household', value: 0},{key: 'Health', value: 0},
-               {key: 'Fuel', value: 0},{key: 'Communication', value: 0},
-               {key: 'Transportation', value: 0},{key: 'Education', value: 0},
-               {key: 'Recreation', value: 0},{key: 'Miscellany', value: 0},
-               {key: 'Furniture', value: 0},{key: 'Rent', value: 0},
-                {key: 'Occasions', value: 0},{key: 'Other', value: 200000}];
-  // chart dimensions 
-  let width = 680, height = 400, margin = {t:10,b:30,l:100,r:10};
   // svg element
       
     let svg = d3.select('div#barContainer2')
@@ -269,35 +258,61 @@ map.on('load', () =>{
     let yAxis2 = svg2.append('g')
         .classed('axis', true)
         .attr('transform', `translate(${margin.l},${margin.t})`);
-    updateData(dataRegion);
+      
+    let svg3 = d3.select('div#barContainer3')
+      .append('svg')
+      .attr('width', width)
+      .attr('height', height)
+      .style('border', 'solid 1px #fff');
+    let chart3 = svg3.append('g')
+        .classed('chart', true)
+        .attr('transform', `translate(${margin.l},${margin.t})`);
+          // axes areas
+    let xAxis3 = svg3.append('g')
+        .classed('axis', true)
+        .attr('transform', `translate(${margin.l},${height-margin.b})`);
+    let yAxis3 = svg3.append('g')
+        .classed('axis', true)
+        .attr('transform', `translate(${margin.l},${margin.t})`);
+    
+    let svg4 = d3.select('div#barContainer4')
+      .append('svg')
+      .attr('width', width)
+      .attr('height', height)
+      .style('border', 'solid 1px #fff');
+    
+    let chart4 = svg4.append('g')
+        .classed('chart', true)
+        .attr('transform', `translate(${margin.l},${margin.t})`);
+          // axes areas
+    let xAxis4 = svg4.append('g')
+        .classed('axis', true)
+        .attr('transform', `translate(${margin.l},${height-margin.b})`);
+    let yAxis4 = svg4.append('g')
+        .classed('axis', true)
+        .attr('transform', `translate(${margin.l},${margin.t})`);
+    
+    
+
+  // datasets
+  let dataRegion = [{key: 'Food', value: 12},{key: 'Clothes', value: 12},
+               {key: 'Household', value: 12},{key: 'Health', value: 12},
+               {key: 'Fuel', value: 12},{key: 'Communication', value: 12},
+               {key: 'Transportation', value: 12},{key: 'Education', value: 12},
+               {key: 'Recreation', value: 12},{key: 'Miscellany', value: 12},
+               {key: 'Furniture', value: 12},{key: 'Rent', value: 12},
+                {key: 'Occasions', value: 12},{key: 'Other', value: 12}];
+  let dataRegionIncome = [{key: 'Regular Income', value: 12},{key: 'Seasonal Income', value: 12},
+                       {key: 'Entrepreneurial Income', value: 12},{key: 'Other Sources of Income', value: 12},
+                       {key: 'Support From Abroad', value: 12},{key: 'Support From Domestic Sources', value: 12}];
+    updateData(dataRegion, chart2, xAxis2, yAxis2);
+    updateData(dataRegionIncome, chart3, xAxis3, yAxis3);
   var data = d3.csv("https://raw.githubusercontent.com/carlraymundo/DATA101-Final-Project/diego/data/aggdata.csv?token=AGC4UAD46DLLI2NWNAIN3S3BJH24G",
   function(d) {
     return {
       region: d.REGION,
       mean_expenditure: d.mean_expenditure,
-      mean_family_size: d.mean_family_size,
       mean_income: d.mean_income,
-      mean_reg_salary: d.mean_reg_salary,
-      mean_seasonal_salary: d.mean_seasonal_salary,
-      mean_entrep_inc: d.mean_entrep_inc,
-      mean_others_salary: d.mean_others_salary,
-      cash_abroad: d.cash_abroad,
-      cash_domestic: d.cash_domestic,
-      mean_food_exp: d.mean_food_exp,
-      mean_clothes_exp: d.mean_clothes_exp,
-      mean_furnishings_exp: d.mean_furnishings_exp,
-      mean_health_exp: d.mean_health_exp,
-      mean_fuels_exp: d.mean_fuels_exp,
-      mean_rent_exp: d.mean_rent_exp,
-      mean_transpo_exp: d.mean_transpo_exp,
-      mean_comms_exp: d.mean_comms_exp,
-      mean_recs_exp: d.mean_recs_exp,
-      mean_educ_exp: d.mean_educ_exp,
-      mean_misc_exp: d.mean_misc_exp,
-      mean_furniture_exps: d.mean_furniture_exps,
-      mean_occasions_exp: d.mean_occasions_exp,
-      mean_others_exp: d.mean_others_exp,
-      count: d.count
     };
   }).then(function(dataset) {
       // transitions
@@ -366,11 +381,83 @@ map.on('load', () =>{
       setTimeout(()=>{bars.merge(barsEnter).classed('new', false)}, d*4)
   });
     
+  var data2 = d3.csv("https://raw.githubusercontent.com/carlraymundo/DATA101-Final-Project/diego/data/aggdata.csv?token=AGC4UAD46DLLI2NWNAIN3S3BJH24G",
+  function(d) {
+    return {
+      region: d.REGION,
+      mean_income: d.mean_income,
+    };
+  }).then(function(dataset) {
+      // transitions
+      console.log(dataset);
+      let d = 500;
+      let tRemove = d3.transition()
+          .duration(d);
+      let tPosition = d3.transition()
+          .duration(d)
+          .delay(d);
+      let tSize = d3.transition()
+          .duration(d)
+          .delay(d*2);
+      
+      let regions = dataset.map(function(d) {return d.region; });
+      // scales
+      console.log(d3.max(dataset, function(d) { return d.mean_income; }));
+      let xScale = d3.scaleLinear()
+          .domain([0, d3.max(dataset, d=>d.mean_income)])
+          .range([0, width-margin.l-margin.r]);
+      let yScale = d3.scaleBand()
+          .domain(regions)
+          .range([0, height-margin.t-margin.b])
+          .padding(0.2);
+      // axes
+      d3.axisBottom(xScale)(xAxis4.transition(tSize));
+      d3.axisLeft(yScale)(yAxis4.transition(tPosition));
+      // update pattern
+      // initial selection
+      bars = chart4.selectAll('rect.bar');
+
+      // data binding
+      bars = bars.data(dataset, d=>d.region);
+      // exit selection
+      bars.exit()
+          .classed('obs', true)
+          .transition(tRemove)
+          .attr('width', 0)
+          .remove();
+
+      // enter selection
+      let barsEnter = bars.enter().append('rect')
+          .classed('bar new', true)
+          .attr('x', xScale(0))
+          .on('mouseover', function(e,d){
+              d3.select(this).classed('highlight', true);
+          })
+          .on('mouseout', function(e,d){
+              d3.select(this).classed('highlight', false);
+          });
+      // update selection
+      bars.classed('new', false);
+      // enter + update selection
+
+    //   var color = d3.scaleSequential().domain([0, maxRatio]).interpolator(d3.interpolateGreens);
+
+      bars.merge(barsEnter)
+          .transition(tPosition)
+          .attr('y', d=>yScale(d.region))
+          .attr('height', yScale.bandwidth())
+          .transition(tSize)
+          .attr('width', d=>xScale(d.mean_income))
+          .style("fill", d => region_color(d.region));
+      // class reset
+      setTimeout(()=>{bars.merge(barsEnter).classed('new', false)}, d*4)
+  });
+    
   // chart area
   // update function
-  function updateData(dataset){
+  function updateData(dataset, chartF ,xAxisF, yAxisF){
       // transitions
-        console.log('qwe');
+      //console.log('qwe');
       let d = 500;
       let tRemove = d3.transition()
           .duration(d);
@@ -394,11 +481,11 @@ map.on('load', () =>{
           .range([0, height-margin.t-margin.b])
           .padding(0.2);
       // axes
-      d3.axisBottom(xScale)(xAxis2.transition(tSize));
-      d3.axisLeft(yScale)(yAxis2.transition(tPosition));
+      d3.axisBottom(xScale)(xAxisF.transition(tSize));
+      d3.axisLeft(yScale)(yAxisF.transition(tPosition));
       // update pattern
       // initial selection
-      bars = chart2.selectAll('rect.bar');
+      bars = chartF.selectAll('rect.bar');
       // data binding
       bars = bars.data(dataset, d=>d.key);
       // exit selection
