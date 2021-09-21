@@ -140,8 +140,8 @@ map.on('load', () =>{
             .setLngLat(e.lngLat)
             .setHTML("<b>"+e.features[0].properties['REGION']+"</b><br><p>"+'Mean Income: '+currFormatter.format(parseFloat(e.features[0].properties['mean_income'])))
             .addTo(map);*/
-        document.getElementById("regionalFamExpenditure").innerHTML = currFormatter.format(parseFloat(e.features[0].properties['mean_expenditure']));
-        document.getElementById("regionalFamIncome").innerHTML = currFormatter.format(parseFloat(e.features[0].properties['mean_income']));
+        document.getElementById("regionalFamExpenditure").innerHTML = currFormatter.format(parseFloat(e.features[0].properties['mean_expenditure']).toFixed(2));
+        document.getElementById("regionalFamIncome").innerHTML = currFormatter.format(parseFloat(e.features[0].properties['mean_income']).toFixed(2));
         document.getElementById("regionalHouseSize").innerHTML = parseFloat(e.features[0].properties['mean_family_size']).toFixed(2);
         document.getElementById("regionalGiniValue").innerHTML = e.features[0].properties['gini'];
         document.getElementById("regionname").innerHTML = e.features[0].properties['REGION'];
