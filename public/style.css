@@ -197,24 +197,7 @@ main{
 
 
 @media only screen and (max-width: 1200px){
-    .sidebar{
-        width: 70px;
-    }
-    
-    .sidebar .sidebar-brand,
-    .sidebar li{
-        padding-left: 1rem;
-        text-align: center;
-    }
-    
-    .sidebar li a{
-        padding-left: 0rem;
-    }
-    
-    .sidebar .sidebar-brand h2 span:last-child,
-    .sidebar li a span:last-child{
-        display:none;
-    }
+
     
     .main-content{
         margin-left: 70px;
@@ -245,14 +228,6 @@ main{
         grid-template-columns: 100%;
     }
      
-    .search-wrapper{
-        display: none;
-    }
-
-    .sidebar{
-        left: -100% !important;
-    }
-
     header h2{
         display: flex;
         align-items:center;
@@ -293,31 +268,6 @@ main{
         left: 0 !important;
     }
 
-    #nav-toggle:checked + .sidebar{
-        left: 0 !important;
-        z-index: 100;
-        width: 345px;
-    }
-    
-    #nav-toggle:checked + .sidebar .sidebar-brand,
-    #nav-toggle:checked + .sideba li{
-        padding-left: 2rem;
-        text-align: left;
-    }
-    
-    #nav-toggle:checked + .sidebar li a{
-        padding-left: 1rem;
-    }
-    
-    #nav-toggle:checked + .sidebar .sidebar-brand h2 span:last-child,
-    #nav-toggle:checked + .sidebar li a span:last-child{
-        display:inline;
-    }
-
-    #nav-toggle:checked ~main-content{
-        margin-left: 0rem !important;
-
-    }
 }
 
 @media only screen and (max-width: 560px){
@@ -7228,18 +7178,6 @@ progress {
   display:none!important
  }
 }
-.accordion .card:not(:last-child) {
- margin-bottom:.5rem
-}
-.accordion .card-header {
- border-bottom:0
-}
-.accordion .card-body {
- border-top:1px solid rgba(0,0,0,.125)
-}
-.accordion .card-title a {
- color:#3e4676
-}
 
 .avatar {
  height:40px;
@@ -7345,72 +7283,7 @@ a.card {
 .footer ul {
  margin-bottom:0
 }
-.form-control-lite {
- background:transparent;
- border:0;
- border-radius:0;
- box-shadow:none;
- color:#fff
-}
-.form-control-lite::-webkit-input-placeholder {
- color:rgba(255,255,255,.5)
-}
-.form-control-lite:-moz-placeholder,
-.form-control-lite::-moz-placeholder {
- color:rgba(255,255,255,.5)
-}
-.form-control-lite:-ms-input-placeholder {
- color:rgba(255,255,255,.5)
-}
-.form-control-lite:focus {
- background:transparent;
- box-shadow:none;
- color:#fff;
- outline:0
-}
-@media (min-width:1440px) {
- .container-fluid,
- .container-lg,
- .container-md,
- .container-sm,
- .container-xl {
-  width:95%
- }
-}
-.hamburger,
-.hamburger:after,
-.hamburger:before {
- background:rgba(255,255,255,.75);
- content:"";
- cursor:pointer;
- display:block;
- height:2px;
- transition:background .1s ease-in-out,color .1s ease-in-out;
- width:20px
-}
-.hamburger {
- position:relative
-}
-.hamburger:before {
- position:absolute;
- top:-6.5px;
- width:20px
-}
-.hamburger:after {
- bottom:-6.5px;
- position:absolute;
- width:20px
-}
-.sidebar-toggle:hover .hamburger,
-.sidebar-toggle:hover .hamburger:after,
-.sidebar-toggle:hover .hamburger:before {
- background:#fff
-}
-.hamburger-right,
-.hamburger-right:after,
-.hamburger-right:before {
- right:0
-}
+
 .header {
  margin-bottom:3rem;
  position:relative
@@ -7467,37 +7340,7 @@ a.card {
  height:42px;
  width:42px
 }
-.landing-bg {
- background:linear-gradient(90deg,#0d274c,#1c53a3)
-}
-.landing-text {
- color:rgba(255,255,255,.75)
-}
-.landing-icon {
- align-items:center;
- background:#e9f0fb;
- border-radius:50%;
- display:flex;
- height:56px;
- justify-content:center;
- margin-right:1rem;
- width:56px
-}
-.landing-icon svg {
- color:#3b7ddd;
- height:28px;
- width:28px
-}
-.landing-stars {
- color:#ffc107
-}
-.landing-nav {
- box-shadow:0 0 2.5rem 0 rgba(0,0,0,.075)
-}
-.landing-img {
- border:1px solid rgba(0,0,0,.075);
- box-shadow:0 0 3rem rgba(23,66,130,.075)
-}
+
 .main {
  display:flex;
  flex-direction:column;
@@ -7529,67 +7372,6 @@ body {
  }
 }
 
-
-
-
-
-
-.splash {
- pointer-events:none;
- -webkit-user-select:none;
- -moz-user-select:none;
- user-select:none
-}
-.splash .splash-icon {
- background:#153d77;
- display:block;
- height:100%;
- pointer-events:none;
- position:fixed;
- right:0;
- top:0;
- transform:translateX(0) translateY(-100%);
- transition:transform .5s;
- width:100%;
- z-index:100
-}
-.splash.active .splash-icon {
- transform:translateX(0) translateY(0)
-}
-.splash.active .splash-icon:after {
- -webkit-animation:splash-spinner 1.2s linear infinite;
- animation:splash-spinner 1.2s linear infinite;
- border:5px solid #fff;
- border-radius:50%;
- border-top-color:rgba(0,0,0,.2);
- box-sizing:border-box;
- content:"";
- display:block;
- height:40px;
- left:50%;
- margin-left:-20px;
- position:absolute;
- top:50%;
- width:40px
-}
-@-webkit-keyframes splash-spinner {
- 0% {
-  transform:rotate(0deg)
- }
- to {
-  transform:rotate(359deg)
- }
-}
-@keyframes splash-spinner {
- 0% {
-  transform:rotate(0deg)
- }
- to {
-  transform:rotate(359deg)
- }
-}
-
-
 .text-sm {
  font-size:.75rem
 }
@@ -7600,37 +7382,10 @@ b,
 strong {
  font-weight:500
 }
-pre.snippet {
- word-wrap:break-word;
- text-align:justify;
- white-space:pre-wrap
-}
-.wrapper {
- align-items:stretch;
- display:flex;
- overflow:hidden;
- position:relative;
- width:100%
-}
-.wrapper:before {
- background:#153d77;
- content:" ";
- height:264px;
- left:0;
- position:absolute;
- top:0;
- width:100%
-}
-
-
 
 .bg-primary-dark {
  background-color: rgb(33, 122, 87) !important
 }
-
-
-
-
 
 
 .svg_select_points {
@@ -7639,47 +7394,16 @@ pre.snippet {
  rx:2
 }
 
-
-.resize-triggers {
- -webkit-animation:resizeanim 1ms;
- animation:resizeanim 1ms;
- opacity:0;
- visibility:hidden
-}
-.contract-trigger:before,
-.resize-triggers,
-.resize-triggers>div {
- content:" ";
- display:block;
- height:100%;
- left:0;
- overflow:hidden;
- position:absolute;
- top:0;
- width:100%
-}
-.resize-triggers>div {
- background:#eee;
- overflow:auto
-}
-.contract-trigger:before {
- height:200%;
- width:200%
-}
-
-
-
-
-
 svg {
  touch-action:none
 }
 
+.feather {
+    height: 16px;
+    width: 16px;
+}
 
-
-
-
-
+/* Begin Css of Important stuff */
 .infotooltip .tooltipshow{
   margin: 10px 10px 10px 10px;
   visibility: hidden;
