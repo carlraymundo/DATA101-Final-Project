@@ -21,7 +21,8 @@ regionID[16]="ARMM";
 var currRegion = 0;
 var selectRegion = 0;
 
-var color = d3.scaleOrdinal(d3.schemeCategory10)
+var region_color = d3.scaleOrdinal().range(["#8B0000","#2E8B57","#000080","#CCCC00","#ff709a","#696969","#FF7F50","#9400D3","#00FA9A","#8B4513","#708090","#00CED1","#006400", "#FF1493", "#CD853F", "#FFD700", "#191970"])
+var exp_color = d3.scaleOrdinal().range(["#8B0000","#000080","#CCCC00","#ff709a","#696969","#FF7F50","#FFD700","#00FA9A","#8B4513","#4B0082","#00CED1","#006400","#CD853F", "#9400D3"])
 const phGini = 0.4267;
 const phMeanFamily = 4.4930;
 
@@ -233,7 +234,7 @@ map.on('load', () =>{
                {key: 'Furniture', value: 0},{key: 'Rent', value: 0},
                 {key: 'Occasions', value: 0},{key: 'Other', value: 200000}];
   // chart dimensions 
-  let width = 850, height = 400, margin = {t:10,b:30,l:100,r:10};
+  let width = 680, height = 400, margin = {t:10,b:30,l:100,r:10};
   // svg element
       
     let svg = d3.select('div#barContainer2')
@@ -360,7 +361,7 @@ map.on('load', () =>{
           .attr('height', yScale.bandwidth())
           .transition(tSize)
           .attr('width', d=>xScale(d.mean_expenditure))
-          .style("fill", d => color(d.region));
+          .style("fill", d => region_color(d.region));
       // class reset
       setTimeout(()=>{bars.merge(barsEnter).classed('new', false)}, d*4)
   });
@@ -384,6 +385,7 @@ map.on('load', () =>{
       // scales
       console.log(d3.max(dataset, function(d) { return d.value; }));
       console.log(d.value);
+    //   let exp_color = d3.scaleSequential().domain([0, d3.max(dataset, d=>d.value)]).interpolator(d3.interpolateYlGn);
       let xScale = d3.scaleLinear()
           .domain([0, d3.max(dataset, d=>d.value)])
           .range([0, width-margin.l-margin.r]);
@@ -425,6 +427,7 @@ map.on('load', () =>{
           .attr('height', yScale.bandwidth())
           .transition(tSize)
           .attr('width', d=>xScale(d.value))
+          .style("fill", d => exp_color(d.key))
       // class reset
       setTimeout(()=>{bars.merge(barsEnter).classed('new', false)}, d*4)
   }
