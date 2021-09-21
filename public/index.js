@@ -146,6 +146,7 @@ map.on('load', () =>{
         document.getElementById("regionalHouseSize").innerHTML = parseFloat(e.features[0].properties['mean_family_size']).toFixed(2);
         document.getElementById("regionalGiniValue").innerHTML = e.features[0].properties['gini'];
         document.getElementById("regionname").innerHTML = e.features[0].properties['REGION'];
+
         /*map.fitBounds(e.target.getBounds());*/
             /*.setHTML("<b>"+e.features[0].properties['REGION']+"</b><br><p>"+'Mean Income: '+
                         currFormatter.format(parseFloat(e.features[0].properties['mean_income']))+
@@ -153,25 +154,8 @@ map.on('load', () =>{
             .addTo(map);*/
 
         /*
-        if (phGini > parseFloat(e.features[0].properties['gini'])){
-            document.getElementById("gini-national-comparison").innerHTML =  "<b class='text-success'>" + (phGini - parseFloat(e.features[0].properties['gini'])).toFixed(4) +"</b>"+ " More than the national index."
-            // document.getElementById("gini-national").innerHTML = phGini - parseFloat(e.features[0].properties['gini']);
-            // console.log(phGini - parseFloat(e.features[0].properties['gini']))
-        } else{
-            document.getElementById("gini-national-comparison").innerHTML = "<b class='text-danger'>" + (parseFloat(e.features[0].properties['gini']) - phGini).toFixed(4) +"</b>"+ " Less than the national index."
-            // document.getElementById("gini-national").innerHTML = (parseFloat(e.features[0].properties['gini']) - phGini).toFixed(4)
-            // console.log(parseFloat(e.features[0].properties['gini']) - phGini)
-        }
 
-        if (phMeanFamily > parseFloat(e.features[0].properties['mean_family_size'])){
-            document.getElementById("famsize-national-comparison").innerHTML =  "<b class='text-success'>" + (phMeanFamily - parseFloat(e.features[0].properties['mean_family_size'])).toFixed(2) +"</b>"+ " More than the national average."
-            // document.getElementById("gini-national").innerHTML = phGini - parseFloat(e.features[0].properties['gini']);
-            // console.log(phGini - parseFloat(e.features[0].properties['gini']))
-        } else{
-            document.getElementById("famsize-national-comparison").innerHTML = "<b class='text-danger'>" + (parseFloat(e.features[0].properties['mean_family_size']) - phMeanFamily).toFixed(2) +"</b>"+ " Less than the national average."
-            // document.getElementById("gini-national").innerHTML = (parseFloat(e.features[0].properties['gini']) - phGini).toFixed(4)
-            // console.log(parseFloat(e.features[0].properties['gini']) - phGini)
-        }*/
+        */
             food = parseFloat(e.features[0].properties['mean_food_exp']);
             clothes = parseFloat(e.features[0].properties['mean_clothes_exp']);
             hh = parseFloat(e.features[0].properties['mean_furnishings_exp']);
@@ -204,6 +188,20 @@ map.on('load', () =>{
 
         map.setFilter('selected', ['==', ['get', 'REGION'], e.features[0].properties['REGION']])
         selectRegion = null;
+
+        if (phMeanFamily > parseFloat(e.features[0].properties['mean_family_size'])){
+            document.getElementById("famsize-comparison").innerHTML =  "<em><small><b class='text-success'>" + (phMeanFamily - parseFloat(e.features[0].properties['mean_family_size'])).toFixed(2) +"</b>"+ " more than the <span><abbr title='4.493'>nat'l average</span>.</small></em>"
+        } else{
+            document.getElementById("famsize-comparison").innerHTML = "<em><small><b class='text-danger'>" + (parseFloat(e.features[0].properties['mean_family_size']) - phMeanFamily).toFixed(2) +"</b>"+ " less than the <span><abbr title='4.493'>nat'l average</span>.</small></em>"
+        }
+
+        if (phGini > parseFloat(e.features[0].properties['gini'])){
+            document.getElementById("gini-comparison").innerHTML =  "<em><small><b class='text-danger'>" + (phGini - parseFloat(e.features[0].properties['gini'])).toFixed(4) +"</b>"+ " more than the nat'l index.</small></em>"
+        } else{
+            document.getElementById("gini-comparison").innerHTML = "<em><small><b class='text-success'>" + (parseFloat(e.features[0].properties['gini']) - phGini).toFixed(4) +"</b>"+ " less than the national index.</small></em>"
+        }
+
+        
     });
     map.on('mousemove', 'fies', (e) => {
         map.getCanvas().style.cursor = 'pointer';
@@ -426,7 +424,7 @@ map.on('load', () =>{
           .attr('y', d=>yScale(d.key))
           .attr('height', yScale.bandwidth())
           .transition(tSize)
-          .attr('width', d=>xScale(d.value));
+          .attr('width', d=>xScale(d.value))
       // class reset
       setTimeout(()=>{bars.merge(barsEnter).classed('new', false)}, d*4)
   }
