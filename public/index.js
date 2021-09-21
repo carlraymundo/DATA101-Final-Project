@@ -21,6 +21,7 @@ regionID[16]="ARMM";
 var currRegion = 0;
 var selectRegion = 0;
 
+var color = d3.scaleOrdinal(d3.schemeCategory10)
 const phGini = 0.4267;
 const phMeanFamily = 4.4930;
 
@@ -329,6 +330,7 @@ map.on('load', () =>{
       // update pattern
       // initial selection
       bars = chart.selectAll('rect.bar');
+
       // data binding
       bars = bars.data(dataset, d=>d.region);
       // exit selection
@@ -351,12 +353,16 @@ map.on('load', () =>{
       // update selection
       bars.classed('new', false);
       // enter + update selection
+
+    //   var color = d3.scaleSequential().domain([0, maxRatio]).interpolator(d3.interpolateGreens);
+
       bars.merge(barsEnter)
           .transition(tPosition)
           .attr('y', d=>yScale(d.region))
           .attr('height', yScale.bandwidth())
           .transition(tSize)
-          .attr('width', d=>xScale(d.mean_expenditure));
+          .attr('width', d=>xScale(d.mean_expenditure))
+          .style("fill", d => color(d.region));
       // class reset
       setTimeout(()=>{bars.merge(barsEnter).classed('new', false)}, d*4)
   });
