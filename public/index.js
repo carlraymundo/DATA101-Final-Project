@@ -194,6 +194,8 @@ map.on('load', () =>{
         } else{
             document.getElementById("famsize-comparison").innerHTML = "<em><small><b class='text-danger'>" + (parseFloat(e.features[0].properties['mean_family_size']) - phMeanFamily).toFixed(2) +"</b>"+ " more than the <span><abbr title='4.493'>nat'l average</span>.</small></em>"
         }
+            document.getElementById("famsize-comparison").innerHTML =  "<em><small><b class='text-primary'>" + (phMeanFamily - parseFloat(e.features[0].properties['mean_family_size'])).toFixed(2) +"</b>"+ " more than the <span><abbr title='4.493'>nat'l average</span>.</small></em>"
+        } 
 
         if (phGini > parseFloat(e.features[0].properties['gini'])){
             document.getElementById("gini-comparison").innerHTML =  "<em><small><b class='text-success'>" + (phGini - parseFloat(e.features[0].properties['gini'])).toFixed(4) +"</b>"+ " less than the nat'l index.</small></em>"
