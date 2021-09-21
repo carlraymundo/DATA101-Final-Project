@@ -226,69 +226,69 @@ map.on('load', () =>{
     
   // svg element
       
-    let svg = d3.select('div#barContainer2')
+    const svg = d3.select('div#barContainer2')
       .append('svg')
       .attr('width', width)
       .attr('height', height)
       .style('border', 'solid 1px #fff');
-    let chart = svg.append('g')
+    const chart = svg.append('g')
         .classed('chart', true)
         .attr('transform', `translate(${margin.l},${margin.t})`);
           // axes areas
-    let xAxis = svg.append('g')
+    const xAxis = svg.append('g')
         .classed('axis', true)
         .attr('transform', `translate(${margin.l},${height-margin.b})`);
-    let yAxis = svg.append('g')
+    const yAxis = svg.append('g')
         .classed('axis', true)
         .attr('transform', `translate(${margin.l},${margin.t})`);
     
-    let svg2 = d3.select('div#barContainer')
+    const svg2 = d3.select('div#barContainer')
       .append('svg')
       .attr('width', width)
       .attr('height', height)
       .style('border', 'solid 1px #fff');
     
-    let chart2 = svg2.append('g')
+    const chart2 = svg2.append('g')
         .classed('chart', true)
         .attr('transform', `translate(${margin.l},${margin.t})`);
           // axes areas
-    let xAxis2 = svg2.append('g')
+    const xAxis2 = svg2.append('g')
         .classed('axis', true)
         .attr('transform', `translate(${margin.l},${height-margin.b})`);
-    let yAxis2 = svg2.append('g')
+    const yAxis2 = svg2.append('g')
         .classed('axis', true)
         .attr('transform', `translate(${margin.l},${margin.t})`);
       
-    let svg3 = d3.select('div#barContainer3')
+    const svg3 = d3.select('div#barContainer3')
       .append('svg')
       .attr('width', width)
       .attr('height', height)
       .style('border', 'solid 1px #fff');
-    let chart3 = svg3.append('g')
+    const chart3 = svg3.append('g')
         .classed('chart', true)
         .attr('transform', `translate(${margin.l},${margin.t})`);
           // axes areas
-    let xAxis3 = svg3.append('g')
+    const xAxis3 = svg3.append('g')
         .classed('axis', true)
         .attr('transform', `translate(${margin.l},${height-margin.b})`);
-    let yAxis3 = svg3.append('g')
+    const yAxis3 = svg3.append('g')
         .classed('axis', true)
         .attr('transform', `translate(${margin.l},${margin.t})`);
     
-    let svg4 = d3.select('div#barContainer4')
+    const svg4 = d3.select('div#barContainer4')
       .append('svg')
       .attr('width', width)
       .attr('height', height)
       .style('border', 'solid 1px #fff');
     
-    let chart4 = svg4.append('g')
+    const chart4 = svg4.append('g')
         .classed('chart', true)
         .attr('transform', `translate(${margin.l},${margin.t})`);
           // axes areas
-    let xAxis4 = svg4.append('g')
+    const xAxis4 = svg4.append('g')
         .classed('axis', true)
         .attr('transform', `translate(${margin.l},${height-margin.b})`);
-    let yAxis4 = svg4.append('g')
+    const yAxis4 = svg4.append('g')
         .classed('axis', true)
         .attr('transform', `translate(${margin.l},${margin.t})`);
     
