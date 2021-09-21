@@ -21,7 +21,7 @@ regionID[16]="ARMM";
 var currRegion = 0;
 var selectRegion = 0;
 
-var color = d3.scaleOrdinal(d3.schemeCategory10)
+var color = d3.scaleOrdinal().range(["#8B0000","#2E8B57","#000080","#CCCC00","#ff709a","#696969","#FF7F50","#9400D3","#00FA9A","#8B4513","#708090","#00CED1","#006400", "#FF1493", "#CD853F", "#FFD700", "#191970"])
 const phGini = 0.4267;
 const phMeanFamily = 4.4930;
 
@@ -237,7 +237,7 @@ map.on('load', () =>{
                {key: 'Furniture', value: 0},{key: 'Rent', value: 0},
                 {key: 'Occasions', value: 0},{key: 'Other', value: 200000}];
   // chart dimensions 
-  let width = 850, height = 400, margin = {t:10,b:30,l:100,r:10};
+  let width = 680, height = 400, margin = {t:10,b:30,l:80,r:10};
   // svg element
       
     let svg = d3.select('div#barContainer2')
