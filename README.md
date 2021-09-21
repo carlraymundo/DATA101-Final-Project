@@ -8,3 +8,7 @@ Group members:
 4. TUASON, Diego Miguel
 
 ## Installation
+1. Download and place in preferred filepath.
+2. Download and install Node.js if not yet installed.
+3. Go to Command Line, type "cd <Filepath of app>" and then type "node app.js".
+4. Go to your favorite web browser and go to http://localhost:3000 to use.
