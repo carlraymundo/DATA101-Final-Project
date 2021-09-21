@@ -8,7 +8,7 @@ root{
 }
 
 .about-header{
-    padding:0.5em;
+    padding-top:0.5em;
 }
 
 a.navbar-brand, a.nav-item.nav-link.active{
