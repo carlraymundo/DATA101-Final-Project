@@ -190,17 +190,15 @@ map.on('load', () =>{
         selectRegion = null;
 
         if (phMeanFamily > parseFloat(e.features[0].properties['mean_family_size'])){
-            document.getElementById("famsize-comparison").innerHTML =  "<em><small><b class='text-success'>" + (phMeanFamily - parseFloat(e.features[0].properties['mean_family_size'])).toFixed(2) +"</b>"+ " less than the <span><abbr title='4.493'>nat'l average</span>.</small></em>"
+            document.getElementById("famsize-comparison").innerHTML =  "<em><small><b class='text-primary'>" + (phMeanFamily - parseFloat(e.features[0].properties['mean_family_size'])).toFixed(2) +"</b>"+ " less than the <span><abbr title='4.493'>nat'l average</span>.</small></em>"
         } else{
-            document.getElementById("famsize-comparison").innerHTML = "<em><small><b class='text-danger'>" + (parseFloat(e.features[0].properties['mean_family_size']) - phMeanFamily).toFixed(2) +"</b>"+ " more than the <span><abbr title='4.493'>nat'l average</span>.</small></em>"
+            document.getElementById("famsize-comparison").innerHTML = "<em><small><b class='text-primary'>" + (parseFloat(e.features[0].properties['mean_family_size']) - phMeanFamily).toFixed(2) +"</b>"+ " more than the <span><abbr title='4.493'>nat'l average</span>.</small></em>";
         }
-            document.getElementById("famsize-comparison").innerHTML =  "<em><small><b class='text-primary'>" + (phMeanFamily - parseFloat(e.features[0].properties['mean_family_size'])).toFixed(2) +"</b>"+ " more than the <span><abbr title='4.493'>nat'l average</span>.</small></em>"
-        } 
 
         if (phGini > parseFloat(e.features[0].properties['gini'])){
-            document.getElementById("gini-comparison").innerHTML =  "<em><small><b class='text-success'>" + (phGini - parseFloat(e.features[0].properties['gini'])).toFixed(4) +"</b>"+ " less than the nat'l index.</small></em>"
+            document.getElementById("gini-comparison").innerHTML =  "<em><small><b class='text-success'>" + (phGini - parseFloat(e.features[0].properties['gini'])).toFixed(4) +"</b>"+ " less than the nat'l index.</small></em>";
         } else{
-            document.getElementById("gini-comparison").innerHTML = "<em><small><b class='text-danger'>" + (parseFloat(e.features[0].properties['gini']) - phGini).toFixed(4) +"</b>"+ " more than the nat'l index.</small></em>"
+            document.getElementById("gini-comparison").innerHTML = "<em><small><b class='text-danger'>" + (parseFloat(e.features[0].properties['gini']) - phGini).toFixed(4) +"</b>"+ " more than the nat'l index.</small></em>";
         }
 
         
