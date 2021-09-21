@@ -237,7 +237,7 @@ map.on('load', () =>{
                {key: 'Furniture', value: 0},{key: 'Rent', value: 0},
                 {key: 'Occasions', value: 0},{key: 'Other', value: 200000}];
   // chart dimensions 
-  let width = 680, height = 400, margin = {t:10,b:30,l:80,r:10};
+  let width = 680, height = 400, margin = {t:10,b:30,l:100,r:10};
   // svg element
       
     let svg = d3.select('div#barContainer2')
